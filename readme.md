@@ -129,13 +129,23 @@ IDLE ──────────► START ──► SEND_ADDR ─────
 ## Build and Run
 
 ```bash
-# Build
+# first way
+# Build - direct way
 g++ -std=c++17 -Wall -Wextra \
     -o i2c_sim \
     main.cpp i2c_bus.cpp i2c_controller.cpp Ii2c_slavedevice.cpp
-
 # Run
 ./i2c_sim
+
+
+# second way
+# use cmake 
+mkdir build && cd build
+cmake ..
+cmake --build .
+./bin/i2c_sim          # run directly
+# or
+ctest --output-on-failure   # run via CTest
 ```
 
 > **Windows (MSYS2 / MinGW):** run `chcp 65001` first for correct UTF-8 output.
